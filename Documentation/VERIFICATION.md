@@ -39,6 +39,35 @@
 "Input combinations correct" counts every (input combination × output) pair that the stimulus applies.
 Experiment 1 has no truth table; its four DC sweeps run, and the curves are in `waveforms/Experiment-01-Characteristics.png`.
 
+## Waveform-viewing indicators: checks performed
+| Check | Method | Result |
+|---|---|---|
+| Indicators are comments only | Every added line is an LTspice `TEXT … ;` comment. No indicator line is a wire, label, component or directive | **PASS**: 0 non-comment indicator lines |
+| Circuit not modified | Compared every `.asc` file with the previous version in git, ignoring `TEXT` lines | **PASS**: no other line changed |
+| Indicators do not affect the simulation | LTspice netlisted each of the 17 files **with** the indicators and again with **all indicators removed**; the netlists were compared | **PASS**: 17/17 identical |
+| Removing an indicator in the LTspice GUI | In LTspice XVII: *Edit → Delete*, clicked `VIEW INPUT A -->`, ran again | **PASS**: label/wire A intact, same V(a) and V(out) (`how-to-view/10`, `11`) |
+| Restoring an indicator | *Edit → Undo* (F9 in LTspice XVII) | **PASS**: indicator came back (`how-to-view/12`) |
+| Files still simulate | All 17 files run with no warnings or errors, and all truth-table checks above pass | **PASS** |
+
+## Waveform-viewing instructions: what was actually tested in the LTspice GUI
+The steps in the README were carried out in the **LTspice XVII GUI** (on a virtual display under Wine), and the screenshots in
+`Documentation/how-to-view/` were taken during those steps:
+
+| Step | Tested on | Result |
+|---|---|---|
+| *Simulate → Run* and the toolbar Run icon; empty waveform window after Run | `NAND-Gate.asc` | Works as described |
+| Clicking a wire adds its voltage, e.g. `V(out)` | `NAND-Gate.asc` (out, A, B), `Inverter-DC-VTC.asc` (Vout) | Works as described |
+| *Plot Settings → Add Plot Pane*, then click a pane and a wire: one signal per pane | `NAND-Gate.asc` | Works as described |
+| *Plot Settings → Delete Traces*, then click the trace name | `NAND-Gate.asc` (`V(b)`) | Works as described |
+| *Plot Settings → Add trace* dialog, then choose `Id(M1)` | `NMOS-Drain-Characteristics.asc` | Works as described |
+| Clicking **on transistor M1** to plot `Id(M1)` (current-clamp cursor) | `NMOS-Drain-Characteristics.asc` | **Not reproduced** in this test setup: the clicks under Wine did not register on the symbol. This is standard LTspice behaviour, but it is unverified here, so the README also gives the *Add trace* method, which was verified. |
+| Clicking a trace name to get a measurement cursor (README tip) | | Not tested |
+| *Undo* = Ctrl+Z in LTspice 24 | | Not tested (only LTspice XVII was available; there Undo is F9) |
+
+The waveform screenshots in `Documentation/ltspice-waveforms/` are real LTspice waveform windows. The two DC plots were made
+by clicking (VTC) and with *Add trace* (`Id(M1)`). The transient plots were opened from each file's LTspice result with one pane per signal.
+The display was set to thick, brightly coloured traces for readability; this is a display setting only.
+
 # Detailed results
 ## Experiment 3 – NAND and NOR gates
 
