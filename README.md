@@ -22,13 +22,13 @@ truth table (see [Documentation/VERIFICATION.md](Documentation/VERIFICATION.md))
 ## Download
 
 ### Download the whole repository (ZIP)
-1. Open the repository page: <https://github.com/Sylvreen-Npu/vlsi-lab>
+1. Open the repository page: <https://github.com/NikhilKatti29/vlsi-lab>
 2. Click the green **Code** button.
 3. Click **Download ZIP**.
 4. Extract (unzip) the downloaded file.
 5. Open any `.asc` file in LTspice.
 
-Direct ZIP link: <https://github.com/Sylvreen-Npu/vlsi-lab/archive/refs/heads/main.zip>
+Direct ZIP link: <https://github.com/NikhilKatti29/vlsi-lab/archive/refs/heads/main.zip>
 
 ### Download a single experiment file
 1. Open the experiment folder on GitHub (for example `Experiment-03-NAND-NOR-Gates`).
@@ -38,7 +38,7 @@ Direct ZIP link: <https://github.com/Sylvreen-Npu/vlsi-lab/archive/refs/heads/ma
 
 > Do **not** use the browser's *Save page as…* on the GitHub page. That saves an HTML web page, not the LTspice file.
 > Always use **Download raw file**. You can also use a link of the form
-> `https://github.com/Sylvreen-Npu/vlsi-lab/raw/main/<folder>/<file>.asc`.
+> `https://github.com/NikhilKatti29/vlsi-lab/raw/main/<folder>/<file>.asc`.
 
 No GitHub account or login is needed to view or download anything.
 
